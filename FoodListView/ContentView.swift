@@ -68,34 +68,47 @@ struct ItemCellView: View {
 struct FoodItemsDetails: View {
     
     let item: FoodItem
+    @State private var zoomed: Bool = false
     
     var body: some View {
-        Image(item.image)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-        HStack(alignment: .top) {
-            Text("Name: ")
-                .fontWeight(.bold)
-                .font(.system(size: 24))
-                .foregroundColor(.green)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Text(item.name)
-                .foregroundColor(.green)
-                .font(.system(size: 24))
-                .frame(maxWidth: .infinity, alignment: .trailing)
+        VStack {
+            Image(item.image)
+                .resizable()
+                .aspectRatio(contentMode: zoomed ? .fill: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .onLongPressGesture() {
+                    withAnimation {
+                        zoomed.toggle()
+                    }
+                }
+//            HStack(alignment: .top) {
+//                Text("Name: ")
+//                    .fontWeight(.bold)
+//                    .font(.system(size: 24))
+//                    .foregroundColor(.green)
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                Text(item.name)
+//                    .foregroundColor(.green)
+//                    .font(.system(size: 24))
+//                    .frame(maxWidth: .infinity, alignment: .trailing)
+//            }
+            HStack(alignment: .top) {
+                Text("Average Calories: ")
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
+                    .font(.system(size: 24))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("\(item.totalCalories)")
+                    .foregroundColor(.green)
+                    .font(.system(size: 24))
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                
+            }
+            Spacer()
         }
-        HStack(alignment: .top) {
-            Text("Average Calories: ")
-                .fontWeight(.bold)
-                .foregroundColor(.green)
-                .font(.system(size: 24))
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Text("\(item.totalCalories)")
-                .foregroundColor(.green)
-                .font(.system(size: 24))
-                .frame(maxWidth: .infinity, alignment: .trailing)
-            
-        }
+        .navigationTitle(item.name)
+        .padding()
+        
     }
+        
 }
