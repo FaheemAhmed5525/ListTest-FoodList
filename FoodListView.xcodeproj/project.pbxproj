@@ -14,6 +14,7 @@
 		0D9D69552C8EC021001EF3BB /* FoodListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D69542C8EC021001EF3BB /* FoodListViewTests.swift */; };
 		0D9D695F2C8EC021001EF3BB /* FoodListViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D695E2C8EC021001EF3BB /* FoodListViewUITests.swift */; };
 		0D9D69612C8EC021001EF3BB /* FoodListViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D69602C8EC021001EF3BB /* FoodListViewUITestsLaunchTests.swift */; };
+		0D9D696E2C8EC03B001EF3BB /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D696D2C8EC03B001EF3BB /* FoodItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0D9D695A2C8EC021001EF3BB /* FoodListViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodListViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9D695E2C8EC021001EF3BB /* FoodListViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewUITests.swift; sourceTree = "<group>"; };
 		0D9D69602C8EC021001EF3BB /* FoodListViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0D9D696D2C8EC03B001EF3BB /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				0D9D69432C8EC01C001EF3BB /* FoodListViewApp.swift */,
 				0D9D69452C8EC01C001EF3BB /* ContentView.swift */,
+				0D9D696D2C8EC03B001EF3BB /* FoodItem.swift */,
 				0D9D69472C8EC020001EF3BB /* Assets.xcassets */,
 				0D9D69492C8EC020001EF3BB /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D9D69462C8EC01C001EF3BB /* ContentView.swift in Sources */,
+				0D9D696E2C8EC03B001EF3BB /* FoodItem.swift in Sources */,
 				0D9D69442C8EC01C001EF3BB /* FoodListViewApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
