@@ -17,9 +17,19 @@ struct ContentView: View {
         VStack {
             NavigationStack {
                 List(foodItems) { item in
-                    ItemCellView(item: item)
+                    NavigationLink(value: item) {
+                        ItemCellView(item: item)
+                    }
+                    
                 }
                 .navigationTitle("Fruits")
+                .navigationDestination(for: FoodItem.self) {item in
+                    
+                    VStack {
+                        FoodItemsDetails(item: item)
+                        
+                    }
+                }
             }
         }
         .padding(0)
@@ -52,5 +62,40 @@ struct ItemCellView: View {
             .padding(0)
         }
         .padding(8)
+    }
+}
+
+struct FoodItemsDetails: View {
+    
+    let item: FoodItem
+    
+    var body: some View {
+        Image(item.image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+        HStack(alignment: .top) {
+            Text("Name: ")
+                .fontWeight(.bold)
+                .font(.system(size: 24))
+                .foregroundColor(.green)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Text(item.name)
+                .foregroundColor(.green)
+                .font(.system(size: 24))
+                .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        HStack(alignment: .top) {
+            Text("Average Calories: ")
+                .fontWeight(.bold)
+                .foregroundColor(.green)
+                .font(.system(size: 24))
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Text("\(item.totalCalories)")
+                .foregroundColor(.green)
+                .font(.system(size: 24))
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            
+        }
     }
 }

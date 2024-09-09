@@ -7,7 +7,18 @@
 
 import Foundation
 
-class FoodItem: Identifiable {
+class FoodItem: Identifiable, Hashable, Equatable {
+    func hash(into hasher: inout Hasher) {
+        
+    }
+    
+    static func == (lhs: FoodItem, rhs: FoodItem) -> Bool {
+        if lhs.name == rhs.name && lhs.totalCalories == rhs.totalCalories {
+            return true
+        }
+        return false
+    }
+    
     let id = UUID()
     let name: String
     let totalCalories: Float
